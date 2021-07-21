@@ -1,0 +1,18 @@
+﻿@using TatilSeyahat.Models.Sınıflar
+@model List<Iconlar>
+@{
+    Layout = null;
+}
+
+@foreach (var x in Model)
+{
+    <div class="con-text">
+        <div class="grid1-img">
+            <img src="@x.IconResim" alt="">
+        </div>
+        <div class="grid1-desc">
+            <p>@x.IcınYazi</p>
+        </div>
+        <div class="clear"></div>
+    </div>
+}

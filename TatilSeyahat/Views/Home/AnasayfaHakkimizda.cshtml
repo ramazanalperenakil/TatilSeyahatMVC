@@ -1,0 +1,11 @@
+﻿@using TatilSeyahat.Models.Sınıflar
+@model List<Anasayfa>
+@{
+    Layout = null;
+}
+
+@foreach (var x in Model)
+{
+    <h3>@x.Baslik</h3>
+    <p>@x.Aciklama</p>
+}

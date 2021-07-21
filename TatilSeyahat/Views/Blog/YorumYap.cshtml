@@ -1,0 +1,14 @@
+﻿@using TatilSeyahat.App_Code
+<div class="content-form">
+    <h3>Yorum Yapmak İstermisiniz</h3>
+    <form method="post">
+        <input type="text" placeholder="Kullanıcı Adı" name="KullaniciAdi" required />
+        <input type="text" placeholder="E-Posta" name="Mail" required />
+        <textarea name="Yorumunuz" required placeholder="Yorumunuz"></textarea>
+       
+        <input type="hidden" name="IP" value="@seo.GetClientIp()" />
+        <input type="submit" value="Yorum Yap" />
+    </form>
+</div>
+
+

@@ -1,0 +1,73 @@
+﻿@using TatilSeyahat.Models.Sınıflar
+@model List<Blog>
+@using TatilSeyahat.App_Code
+@{
+    ViewBag.Title = "Default";
+    Layout = "~/Views/Shared/MasterPage.cshtml";
+}
+<title>Free Easy-Trip Website Template | Home :: w3layouts</title>
+<div class="header-banner">
+    <div class="wrap">
+        <div class="banner">
+            <div class="indent">
+                <h2 class="indent-left margin-bot">Plan the Easy Trip</h2>
+                <div class="banner-left">
+                    @Html.Action("Iconlar", "Home")
+
+                    <div class="clear"></div>
+                </div>
+                <div class="header_bottom_right_images">
+
+                    <div class="slider" style="width:650px;height:350px">
+                        <ul class="rslides" id="slider1">
+                            @foreach (var slider in Model)
+                            {
+                                <li><a href="/Makale/@seo.AdresDuzenle(slider.Baslik)-@slider.ID"><img src="~/uploads/@slider.BlogImage" style="width:650px;height:350px" alt=""></a></li>
+                            }
+
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+<div class"content">
+    <div class="wrap">
+        <div class="wrapper">
+            <div class="con-top" >
+                @Html.Action("AnasayfaHakkimizda", "Home")
+            </div>
+
+
+            @Html.Action("AnasayfaBlogSolİkili", "Home")
+
+
+            <div class="clear"></div>
+
+
+
+        </div>
+        <br />
+        <div class="grids">
+            <div class="box1">
+                <div class="padding">
+                    <h4>This Week's Top 10</h4>
+                    <ul class="list list-pad">
+                        @Html.Action("SonOnBLog", "Home")
+
+
+
+                    </ul>
+                    <a href="/Blog" class="link1">See all hotels</a>
+                </div>
+                @Html.Action("SonOnBLogAltili", "Home")
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+</div>
+

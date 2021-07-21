@@ -1,0 +1,53 @@
+﻿@Scripts.Render("~/bundles/ckeditor")
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<title>W3.CSS</title>
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<script src="~/Scripts/bootstrap.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="~/ckeditor/build-config.js"></script>
+<script src="~/ckeditor/ckeditor.js"></script>
+<script src="~/ckeditor/config.js"></script>
+<script src="~/ckeditor/styles.js"></script>
+
+<link rel="stylesheet" runat="server" href="../CKEditor/skins/moono/editor.css" />
+<script type="text/javascript" src="../js/jsnew/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="..//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+
+
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body>
+
+    <!-- Sidebar -->
+    <div class="w3-sidebar w3-light-grey w3-bar-block" style="width:15%">
+        <h3 class="w3-bar-item">Menüler</h3>
+        <a href="/Admin" class="w3-bar-item w3-button">Blog</a>
+        <a href="/Admin/Yorumlar" class="w3-bar-item w3-button">Yorumlar</a>
+        <a href="/Admin/Iletisim" class="w3-bar-item w3-button">İletişim</a>
+        <a href="/Admin/Hakkimizda" class="w3-bar-item w3-button">Hakkımızda</a>
+        <a href="~/" target="_blank" class="w3-bar-item w3-button">Siteye Git</a>
+    </div>
+
+    <!-- Page Content -->
+    <div style="margin-left:15%">
+
+        <div class="w3-container w3-teal">
+            <h1>Admin Yönetim Paneli</h1>
+        </div>
+
+
+
+        <div class="w3-container">
+            @RenderBody()
+        </div>
+
+    </div>
+
+</body>
+</html>

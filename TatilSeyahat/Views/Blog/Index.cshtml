@@ -1,0 +1,129 @@
+﻿@model TatilSeyahat.Models.Sınıflar.BlogYorum
+@using TatilSeyahat.App_Code
+@using PagedList;
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/MasterPage.cshtml";
+}
+
+
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Personal Blog a Blogging Category Flat Bootstarp  Responsive Website Template | Single :: w3layouts</title>
+    <link href="~/web2/css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <link href="~/web2/css/style.css" rel='stylesheet' type='text/css' />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Personal Blog Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
+	Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!----webfonts---->
+    <link href='http://fonts.googleapis.com/css?family=Oswald:100,400,300,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,300italic' rel='stylesheet' type='text/css'>
+    <!----//webfonts---->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <!--end slider -->
+    <!--script-->
+    <script type="~/web2/text/javascript" src="js/move-top.js"></script>
+    <script type="~/web2/text/javascript" src="js/easing.js"></script>
+    <!--/script-->
+    <script type="text/javascript">
+			jQuery(document).ready(function($) {
+				$(".scroll").click(function(event){
+					event.preventDefault();
+					$('html,body').animate({scrollTop:$(this.hash).offset().top},900);
+				});
+			});
+    </script>
+    <!---->
+
+</head>
+<body>
+    <!---header---->
+    <div class="header">
+        <div class="container">
+
+            <!---start-top-nav---->
+
+            <div class="clearfix"></div>
+
+            <!---//End-top-nav---->
+        </div>
+    </div>
+    <!--/header-->
+    <div class="single">
+        <div class="container">
+            <div class="col-md-8 single-main">
+                @foreach (var x in Model.Deger1Blog)
+                {
+
+                <div class="single-grid ">
+                    <a href="/Makale/@seo.AdresDuzenle(x.Baslik)-@x.ID">
+                        <img style="max-height:300px" src="~/uploads/@x.BlogImage" alt="" />
+                    </a>
+                    @*@Html.ActionLink(x.Baslik,"Detay", new { id=x.ID,baslik= seo.AdresDuzenle(x.Baslik)})*@
+                    <h1 class="text-center" style="margin-top:20px"><a href="/Makale/@seo.AdresDuzenle(x.Baslik)-@x.ID">@x.Baslik</a></h1>
+                    <br />
+                    @x.Time.ToString("dd/MM/yyyy")
+                <p>
+                    @if (x.Aciklama.ToString().Length < 20)
+                    {
+                        @MvcHtmlString.Create(x.Aciklama.ToString())
+                    }
+                    else
+                    {
+                        @MvcHtmlString.Create(x.Aciklama.Substring(0, 250) + "...")
+                        @*@Html.Raw(x.Aciklama.Substring(0, 250) + "...")*@
+                    }
+                    @*@x.Aciklama.ToString().Substring(0, 100)...  &nbsp;*@
+                </p>
+                    <a class="read" style="font-size:12px" href="/Makale/@seo.AdresDuzenle(x.Baslik)-@x.ID">Devamını Oku</a>
+                </div><br /><br />
+
+                }
+                @*<%# (Eval("HaberBaslik").ToString().Length>40)?Eval("HaberBaslik").ToString().Substring(0,40)+"...":Eval("HaberBaslik").ToString() %>*@
+                @Html.PagedListPager((IPagedList)Model.Deger1Blog, sayfa=>Url.Action("Index", new { sayfa}))
+            </div>
+
+
+    
+
+            <div class="col-md-4 side-content">
+                <div class="recent">
+                    <h3>Son Bloglar POSTS</h3>
+                    <ul>
+                        @foreach (var y in Model.Deger3BlogSonCek)
+                        {
+                            <li><a href="/Makale/@seo.AdresDuzenle(y.Baslik)-@y.ID">@y.Baslik</a></li>
+
+                        }
+
+
+
+                    </ul>
+                </div>
+                <div class="comments">
+                    <h3>RECENT COMMENTS</h3>
+                    <ul>
+                        <li><a href="#">Amada Doe </a> on <a href="#">Hello World!</a></li>
+                        <li><a href="#">Peter Doe </a> on <a href="#"> Photography</a></li>
+                        <li><a href="#">Steve Roberts  </a> on <a href="#">HTML5/CSS3</a></li>
+                    </ul>
+                </div>
+
+
+
+
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+
+    <!---->
+
+</body>
+
+</html>

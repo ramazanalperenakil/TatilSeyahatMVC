@@ -1,0 +1,31 @@
+﻿@using TatilSeyahat.Models.Sınıflar
+@model List<Blog>
+@using TatilSeyahat.App_Code
+
+
+
+
+
+
+@{ int i = 0;}
+@foreach (var x in Model)
+{
+
+  <li class="list-bg1"><span>@{i++;}@i.</span><a href="/Makale/@seo.AdresDuzenle(x.Baslik)-@x.ID">
+    @if (@x.Baslik.ToString().Length < 40)
+    {
+        @Html.Raw(@x.Baslik.ToString())
+    }
+    else
+    {
+        @Html.Raw(@x.Baslik.Substring(0, 30)+"...").ToString()
+
+    }
+    @*@x.Baslik*@
+
+
+</a></li>
+}
+
+
+

@@ -1,0 +1,22 @@
+﻿@using TatilSeyahat.Models.Sınıflar
+@model List<Hakkimizda>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/MasterPage.cshtml";
+}
+@foreach (var x in Model)
+{
+    <title>@x.Baslik</title>
+}
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<div class="wrap">
+    <div class="about">
+        @foreach (var x in Model)
+        {
+            <h3>@x.Baslik</h3>
+            <img class="img-thumbnail" src="~/uploads/@x.FotoUrl" alt="" />
+            <p>@MvcHtmlString.Create(x.Aciklama)</p>
+        }
+
+    </div>
+</div>

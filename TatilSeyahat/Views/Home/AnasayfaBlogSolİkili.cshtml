@@ -1,0 +1,51 @@
+﻿@using TatilSeyahat.Models.Sınıflar
+@model List<Blog>
+@using TatilSeyahat.App_Code
+ 
+
+@foreach (var x in Model)
+{
+    <div class="right    " style="height:100%">
+        <div class="bot-left  ">
+            <img src="~/uploads/@x.BlogImage" style="height:200px; width:300px"  alt="" />
+        </div>
+        <div class="left-text  " id="kucukblog">
+
+            <h4>@x.Baslik</h4>
+            <span class="doller">@x.Time.ToString("dd/MM/yyyy")</span>
+            @*<p>@x.Aciklama.ToString().Substring(0, 70)..</p>*@
+            @*@Html.Raw(x.Aciklama.Substring(0, 190))*@
+            @if (x.Aciklama.ToString().Length < 40)
+            {
+                @MvcHtmlString.Create(x.Aciklama.ToString())
+            }
+            else
+            {
+                @MvcHtmlString.Create(x.Aciklama.Substring(0, 154)+"...")
+                
+            }
+            @*@MvcHtmlString.Create(x.Aciklama.ToString())*@
+
+            @*<%# (Eval("HaberBaslik").ToString().Length>40)?Eval("HaberBaslik").ToString().Substring(0,40)*@
+
+            <p ><a href="/Makale/@seo.AdresDuzenle(x.Baslik)-@x.ID"><span class="read">Read More >></span></a></p>
+        </div>
+    </div>
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

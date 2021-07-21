@@ -1,0 +1,47 @@
+﻿@model TatilSeyahat.Models.Sınıflar.Yorum
+@{
+    ViewBag.Title = "YorumGetir";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+@if (ViewBag.Success != null)
+{
+    <script> swal("İşlem Başarılı!", "Kayıt Eklendi", "success"); @*swal({icon: "success",title: "Kayıt Başarılı",})}*@ </script>}
+@if (ViewBag.Error != null)
+{
+    <script>swal("HATA!", "İşlem Sırasında Bir Hata Oluştu", "error");</script>}
+<h2>YorumGetir</h2>
+
+
+@using (Html.BeginForm("YorumGuncelle", "Admin", FormMethod.Post))
+{
+    @Html.LabelFor(x => x.ID, "İd")
+    @Html.TextBoxFor(x => x.ID, new { @class = "form-control" })
+    <br />
+
+    @Html.LabelFor(x => x.KullaniciAdi, "Kullanıcı Adı")
+    @Html.TextBoxFor(x => x.KullaniciAdi, new { @class = "form-control", @readonly = "readonly", })
+    <br />
+    @Html.LabelFor(x => x.Mail, "Mail ")
+    @Html.TextBoxFor(x => x.Mail, new { @class = "form-control", @readonly = "readonly", })
+
+    <br />
+    @Html.LabelFor(x => x.IP, "İP ")
+    @Html.TextBoxFor(x => x.IP, new { @class = "form-control", @readonly = "readonly", })
+    <br />
+    @Html.LabelFor(x => x.Yorumunuz, "Yorum")
+    @Html.TextAreaFor(x => x.Yorumunuz, new { @class = "form-control", })
+    <br />
+    @Html.LabelFor(x => x.Blog.Baslik, "Başlık")
+    @Html.TextAreaFor(x => x.Blog.Baslik, new { @class = " form-control" })
+
+    
+  
+
+
+
+
+    @*@Html.LabelFor(x => x.BlogImage, "Yeni Resim Seç")
+        <input type="file" onchange="ResimGoster(this)" name="BlogImage" id="BlogImage" class="button" /><br />*@
+    <br />
+    <button class="btn btn-success" style="width:100%" id="ekle">Güncelle</button>
+}
